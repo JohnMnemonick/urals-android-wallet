@@ -1,0 +1,35 @@
+<b>Porta i tuoi UralsCoin sempre con te, in tasca!</b>  Paghi velocemente scansionando un QR-code. Come un commerciante, riceverai i pagamenti sicuri e istantanei. UralsCoin Wallet è la prima UralsCoin app mobile, e probabilmente anche la più sicura!
+
+<b>CARATTERISTICHE</b>
+
+• Non è necessaria alcuna registrazione, servizio web o cloud! Questo portafoglio è de-centralizzato e peer to peer.
+• Mostra l'ammontare di UralsCoin in URALS, mURALS e µURALS.
+• Conversione verso e dalle monete nazionali.
+• Invio e ricevimento di UralsCoin tramite NFC, codici QR o URL UralsCoin.
+• Rubrica degli indirizzi per usare indirizzi UralsCoin regolarmente.
+• Quando sei offline, puoi comunque ancora pagare via Bluetooth.
+• Sistema di notifica per le monete ricevute.
+• Svuotamento di portafogli cartacei (es: quelli utilizzati come depositi offline)
+• App Widget per il saldo UralsCoin
+
+
+<b>CONTRIBUISCI</b>
+
+UralsCoin Wallet è <b>open source</b> e <b>software libero</b>. Licenza: GPLv3
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+Il nostro codice sorgente è disponibile su GitHub
+https://github.com/LIMXTEC/urals-wallet
+
+Tutte le traduzioni sono gestite attraverso Transifex:
+https://www.transifex.com/projects/p/bitcoin-wallet/
+
+
+<b>TESTIMONIANZE</b>
+
+• Molti portafogli mobile basano il loro codice basato su UralsCoin Wallet. Esempi: blockchain.info, Hive e KnC.
+• Portafoglio mobile raccomandato da https://bitcoin.org
+• Raccomandato da BitPay.
+
+
+<i>Usala a tuo rischio!</i>

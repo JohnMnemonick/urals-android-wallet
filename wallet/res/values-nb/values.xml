@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="preferences_precision_labels">
+		<item>URALS, 8 desimaler</item>
+		<item>URALS, 6 desimaler</item>
+		<item>URALS, 4 desimaler</item>
+		<item>mURALS, 2 desimaler</item>
+		<item>µURALS, ingen desimaler</item>
+	</string-array>
+
+</resources>

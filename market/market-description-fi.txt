@@ -1,0 +1,36 @@
+<b>Pidä UralsCoinisi aina mukana taskussasi!</b> Voit maksaa nopeasti skannaamalla QR-koodin. Kauppiaana saat maksut turvallisesti ja välittömästi. UralsCoin Wallet on ensimmäinen UralsCoin-mobiilisovellus ja luultavimmin myös kaikista turvallisin!
+
+
+<b>OMINAISUUDET</b>
+
+• Ei vaadi rekisteröintiä, verkkopalveluja tai pilvitallennusta! Tämä lompakko on hajautettu ja suorayhteyksinen.
+• Mahdollisuus näyttää UralsCoin-varat määrissä URALS, mURALS ja µURALS.
+• Yksikkömuunnos valtioiden valuuttojen välillä.
+• UralsCoinien lähettäminen ja vastaanottaminen NFC, QR-koodien tai UralsCoin-URL-osotteiden avulla.
+• Osoitekirja säännöllisesti käytettyjä UralsCoin-osoitteita varten.
+• Kun et ole verkkoyhteyden ulottuvilla, voit silti maksaa Bluetoothin välityksellä.
+• Järjestelmän ilmoitus vastaanotetuille UralsCoineille.
+• Paperisen lompakon pyyhkäisymahdollisuus (esim. näitä käytetään "kylmissä varastoissa").
+• Android-sovellus UralsCoin-varojen hallintaan.
+
+
+<b>OSALLISTU</b>
+
+UralsCoin Wallet on <b>avointa lähdekoodia</b> ja <b>vapaa ohjelmisto</b>. Lisenssi: GPLv3
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+Lähdekoodi saatavilla GitHub:sta:
+https://github.com/LIMXTEC/urals-wallet
+
+Kaikki käännökset on hallinnoitu Transifex:n kautta:
+https://www.transifex.com/projects/p/bitcoin-wallet/
+
+
+<b>SUOSITTELUMME</b>
+
+• Useat mobiililompakot perustuvat UralsCoin Wallet-ohjelman lähdekoodiin, esimerkiksi: blockchain.info, Hive and KnC.
+• https://bitcoin.org: suosittelema mobiililompakko
+• BitPay:n suosittelema.
+
+
+<i>Käytä omalla vastuulla!</i>

@@ -1,0 +1,26 @@
+﻿<b>Draag je UralsCoin altijd bij je, in je broekzak!</b> Je kunt vlot betalen door een QR-code te scannen. Als handelaar ontvang je je betalingen betrouwbaar en onmiddelijk. UralsCoin Wallet is de eerste mobiele UralsCoin-app, en misschien wel de veiligste!
+
+<b>FEATURES</b>
+
+• Geen registratie, webservice of cloud vereist! De portemonnee is decentraal en peer-to-peer.
+• Geef het UralsCoin-bedrag weer in URALS, mURALS en µURALS.
+• Conversie van en naar nationale valuta.
+* Verzend en ontvang UralsCoin via NFC, QR-codes of UralsCoin-URL's
+• Adresboek voor regelmatig gebruikte UralsCoin-adressen.
+• Ook offline toch betalen via Bluetooth
+• Systeemmelding wanneer je UralsCoin ontvangt
+• App widget voor UralsCoin saldo.
+
+
+<b>HELP MEE</b>
+
+UralsCoin Wallet is <b>open source</b> en <b>free software</b>. Licentie: GPLv3
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+Onze broncode is beschikbaar op GitHub:
+https://github.com/LIMXTEC/urals-wallet
+
+Alle vertalingen worden geregeld via Transifex:
+https://www.transifex.com/projects/p/bitcoin-wallet/
+
+<i>Gebruik op eigen risico!</i>

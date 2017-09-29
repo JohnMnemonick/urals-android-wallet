@@ -1,0 +1,36 @@
+<b>Mějte své UralsCoiny vždy s sebou ve své kapse!</b> Plaťte rychlým oskenováním QR kódu. A jako prodejce můžete přijímat platby spolehlivě a rychle. UralsCoin Wallet je mobilní UralsCoin aplikace číslo jedna a jedna z nejbezpečnějších!
+
+
+<b>FUNKCE</b>
+
+• Žádná registrace, žádná webová služba ani cloud není potřeba! Tato peněženka je de-centralizovaná a peer to peer.
+• Zobrazení UralsCoin částek v URALS, mURALS a µURALS.
+• Přepočet z a do národních měn.
+• Odesílání a přijímání plateb přes NFC, QR kódy nebo UralsCoin URL.
+• Adresář pro často používané UralsCoin adresy.
+• Pokud jste offline, stále můžete platit přes Bluetooth.
+• Systémové notifikace při přijaté platbě
+• Načítání papírových peněženek (např. ty co se používají u cold storage).
+• Widget pro zobrazení UralsCoin bilance.
+
+
+<b>PŘISPĚJTE</b>
+
+UralsCoin Wallet je <b>open source</b> a <b>svobodný software</b>. Licence: GPLv3
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+Náš zdrojový kód je k dispozici na GitHubu:
+https://github.com/LIMXTEC/urals-wallet
+
+Veškeré překlady jsou tvořeny pomocí Transflex.
+https://www.transifex.com/projects/p/bitcoin-wallet/
+
+
+<b>UZNÁNÍ</b>
+
+• Mnoho mobilních peněženek využívá zdrojový kód UralsCoin Wallet. Například: blockchain.info, Hive a KnC.
+• Doporučená mobilní peněženka stránkou https://bitcoin.org
+• Doporučeno službou BitPay.
+
+
+<i>Použití na vlastní riziko!</i>
