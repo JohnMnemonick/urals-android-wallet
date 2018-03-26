@@ -515,13 +515,15 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
         return null;
     }
 
-    private static Object getCoinValueBTC_BTER()
+
+//Here is rates from CREX24.com
+    private static Object getCoinValueBTC_CREX24()
     {
         //final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
         // Keep the LTC rate around for a bit
         Double btcRate = 0.0;
         String currency = CoinDefinition.cryptsyMarketCurrency;
-        String url = "http://data.bter.com/api/1/ticker/"+ CoinDefinition.coinTicker.toLowerCase() + "_" + CoinDefinition.cryptsyMarketCurrency.toLowerCase();
+        String url = "https://api.crex24.com/CryptoExchangeService/BotPublic/ReturnTicker?request=[NamePairs=BTC_URALS]";
 
 
 
@@ -543,11 +545,15 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
                 reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
                 Io.copy(reader, content);
                 final JSONObject head = new JSONObject(content.toString());
-                String result = head.getString("result");
-                if(result.equals("true"))
+                
+		String PairID = head.getString("Tickers");
+		
+		//String result = head.getString("result");
+                //if(result.equals("true"))
+		if (PairID.equals("0"))
                 {
 
-                    Double averageTrade = head.getDouble("avg");
+                    Double averageTrade = head.getDouble("Last");
 
 
                     if(currency.equalsIgnoreCase("BTC"))
@@ -587,13 +593,14 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
 
             Double btcRate = 0.0;
             boolean cryptsyValue = true;
-            Object result = getCoinValueBTC_bittrex();
+            //Object result = getCoinValueBTC_bittrex();
+	    Object result = getCoinValueBTC_CREX24();
 
             if(result == null)
             {
                 result = getCoinValueBTC_poloniex();
                 if(result == null) {
-                    result = getCoinValueBTC_BTER();
+                    result = getCoinValueBTC_bittrex();
                     cryptsyValue = false;
                     if(result == null)
                         return null;
