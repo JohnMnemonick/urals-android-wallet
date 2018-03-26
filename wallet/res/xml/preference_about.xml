@@ -33,22 +33,22 @@
 		android:title="UralsCoin Discussion" >
 		<intent
 			android:action="android.intent.action.VIEW"
-			android:data="https://bitcointalk.org/index.php?topic=1370307.0" />
+			android:data="https://bitcointalk.org/index.php?topic=2369658.0" />
 	</Preference>
 	<Preference
 		android:key="about_twitter"
-		android:summary="\@bit_send"
+		android:summary="\@Uralscoin"
 		android:title="Twitter" >
 		<intent
 			android:action="android.intent.action.VIEW"
-			android:data="https://twitter.com/bit_send" />
+			android:data="https://twitter.com/Uralscoin" />
 	</Preference>
 	<Preference
 		android:key="about_credits_bitcoinj"
-		android:summary="https://github.com/LIMXTEC/uralsj" >
+		android:summary="https://github.com/JohnMnemonick/uralsj" >
 		<intent
 			android:action="android.intent.action.VIEW"
-			android:data="https://github.com/LIMXTEC/uralsj" />
+			android:data="https://github.com/JohnMnemonick/uralsj" />
 	</Preference>
 	<Preference
 		android:key="about_credits_zxing"

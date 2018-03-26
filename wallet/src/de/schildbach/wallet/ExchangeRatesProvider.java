@@ -368,64 +368,68 @@ public class ExchangeRatesProvider extends ContentProvider
 		return null;
 	}
 
-   
-private static Object getCoinValueBTC_bittrex()
-{
-   //final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
-   // Keep the LTC rate around for a bit
-   Double btcRate = 1.0;
-   String currency = "BTC";
-   //String url = "https://bittrex.com/api/v1.1/public/getticker?market=btc-urals";
-   String url = "https://coinsmarkets.com/apicoin.php";
-   try {
-      // final String currencyCode = currencies[i];
-      final URL URL_bter = new URL(url);
-      final HttpURLConnection connection = (HttpURLConnection)URL_bter.openConnection();
-      connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2);
-      connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2);
-      connection.connect();
+    	private static Object getCoinValueBTC_bittrex()
+	{
+		//final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
+		// Keep the LTC rate around for a bit
+		Double btcRate = 0.0;
+		String currency = "BTC";
+String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
+//		String url = "https://bittrex.com/api/v1.1/public/getticker?market=btc-urals";
 
-      final StringBuilder content = new StringBuilder();
+		try {
+			// final String currencyCode = currencies[i];
+			final URL URL_bter = new URL(url);
+			final HttpURLConnection connection = (HttpURLConnection)URL_bter.openConnection();
+			connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.connect();
 
-      Reader reader = null;
-      try
-      {
-         reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
-         Io.copy(reader, content);
-         JSONObject jsonObject = new JSONObject(content.toString());
-         JSONObject btc_urals = (JSONObject)jsonObject.get("BTC_URALS");
-         
-         btcRate = btc_urals.getDouble("last");
-         return btcRate;
+			final StringBuilder content = new StringBuilder();
 
-      }
-      catch (final IOException x)
-      {
-         x.printStackTrace();
-      }
-      catch (final JSONException x)
-      {
-         x.printStackTrace();
-      }
-      catch (final Exception x)
-      {
-         x.printStackTrace();
-      }
-      finally
-      {
-         if (reader != null)
-            reader.close();
-      }
+			Reader reader = null;
+			try
+			{
+				reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
+				Io.copy(reader, content);
+				final JSONObject head = new JSONObject(content.toString());
 
-   }
-   catch (final IOException x)
-   {
-      x.printStackTrace();
-   }
+				/*
+				{"success":true,"message":"","result":{"Bid":0.00313794,"Ask":0.00321785,"Last":0.00315893}} // Bittrex
+				{"success":true,"message":null,"result":{"bid":0.00008835,"ask":0.00010000,"last":0.00009677,"market":"BSD_BTC"}} // TradeSatoshi
+				}*/
+				//String result = head.getString("success");
+				//if(result.equals("true"))
+				//{
+					JSONObject dataObject = head.getJSONObject("data");
 
-   return (btcRate > 0 ? btcRate : null);
-}
- 
+					Double averageTrade = dataObject.getDouble("last");
+
+
+					if(currency.equalsIgnoreCase("BTC"))
+						btcRate = averageTrade;
+				//}
+				return btcRate;
+			}
+			finally
+			{
+				if (reader != null)
+					reader.close();
+			}
+
+		}
+		catch (final IOException x)
+		{
+			x.printStackTrace();
+		}
+		catch (final JSONException x)
+		{
+			x.printStackTrace();
+		}
+
+		return null;
+	}
+    
 	private static Object getCoinValueBTC()
     {
 
