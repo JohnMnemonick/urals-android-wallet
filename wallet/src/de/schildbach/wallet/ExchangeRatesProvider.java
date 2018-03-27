@@ -368,21 +368,19 @@ public class ExchangeRatesProvider extends ContentProvider
 		return null;
 	}
 
-    	private static Object getCoinValueBTC_bittrex()
+	private static Object getCoinValueBTC_crex24()
 	{
 		//final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
 		// Keep the LTC rate around for a bit
-		Double btcRate = 0.0;
+		Double btcRate = 1.0;
 		String currency = "BTC";
-String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
-//		String url = "https://bittrex.com/api/v1.1/public/getticker?market=btc-urals";
-
+		String url = "https://api.crex24.com/CryptoExchangeService/BotPublic/ReturnTicker?request=[NamePairs=BTC_URALS]";
 		try {
 			// final String currencyCode = currencies[i];
 			final URL URL_bter = new URL(url);
 			final HttpURLConnection connection = (HttpURLConnection)URL_bter.openConnection();
-			connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2);
-			connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2);
+			connection.setConnectTimeout(Constants.HTTP_TIMEOUT_MS * 2000);
+			connection.setReadTimeout(Constants.HTTP_TIMEOUT_MS * 2000);
 			connection.connect();
 
 			final StringBuilder content = new StringBuilder();
@@ -390,26 +388,31 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
 			Reader reader = null;
 			try
 			{
+				int status = connection.getResponseCode();
+				InputStream error = connection.getErrorStream();
 				reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
 				Io.copy(reader, content);
-				final JSONObject head = new JSONObject(content.toString());
 
-				/*
-				{"success":true,"message":"","result":{"Bid":0.00313794,"Ask":0.00321785,"Last":0.00315893}} // Bittrex
-				{"success":true,"message":null,"result":{"bid":0.00008835,"ask":0.00010000,"last":0.00009677,"market":"BSD_BTC"}} // TradeSatoshi
-				}*/
-				//String result = head.getString("success");
-				//if(result.equals("true"))
-				//{
-					JSONObject dataObject = head.getJSONObject("data");
+				JSONObject jsonObject = new JSONObject(content.toString());
+				JSONArray Tickers = (JSONArray)jsonObject.get("Tickers");
+				JSONObject bts_urals = (JSONObject)(Tickers.getJSONObject(0));
 
-					Double averageTrade = dataObject.getDouble("last");
+				btcRate = bts_urals.getDouble("Last");
 
-
-					if(currency.equalsIgnoreCase("BTC"))
-						btcRate = averageTrade;
-				//}
 				return btcRate;
+
+			}
+			catch (final IOException x)
+			{
+				x.printStackTrace();
+			}
+			catch (final JSONException x)
+			{
+				x.printStackTrace();
+			}
+			catch (final Exception x)
+			{
+				x.printStackTrace();
 			}
 			finally
 			{
@@ -422,14 +425,10 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
 		{
 			x.printStackTrace();
 		}
-		catch (final JSONException x)
-		{
-			x.printStackTrace();
-		}
 
-		return null;
+		return (btcRate > 0 ? btcRate : null);
 	}
-    
+
 	private static Object getCoinValueBTC()
     {
 
@@ -515,15 +514,13 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
         return null;
     }
 
-
-//Here is rates from CREX24.com
-    private static Object getCoinValueBTC_CREX24()
+    private static Object getCoinValueBTC_BTER()
     {
         //final Map<String, ExchangeRate> rates = new TreeMap<String, ExchangeRate>();
         // Keep the LTC rate around for a bit
         Double btcRate = 0.0;
         String currency = CoinDefinition.cryptsyMarketCurrency;
-        String url = "https://api.crex24.com/CryptoExchangeService/BotPublic/ReturnTicker?request=[NamePairs=BTC_URALS]";
+        String url = "http://data.bter.com/api/1/ticker/"+ CoinDefinition.coinTicker.toLowerCase() + "_" + CoinDefinition.cryptsyMarketCurrency.toLowerCase();
 
 
 
@@ -545,15 +542,11 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
                 reader = new InputStreamReader(new BufferedInputStream(connection.getInputStream(), 1024));
                 Io.copy(reader, content);
                 final JSONObject head = new JSONObject(content.toString());
-                
-		String PairID = head.getString("Tickers");
-		
-		//String result = head.getString("result");
-                //if(result.equals("true"))
-		if (PairID.equals("0"))
+                String result = head.getString("result");
+                if(result.equals("true"))
                 {
 
-                    Double averageTrade = head.getDouble("Last");
+                    Double averageTrade = head.getDouble("avg");
 
 
                     if(currency.equalsIgnoreCase("BTC"))
@@ -593,20 +586,20 @@ String url = "https://coinscontrol.com/Api/GetTicker/URALS_BTC/";
 
             Double btcRate = 0.0;
             boolean cryptsyValue = true;
-            //Object result = getCoinValueBTC_bittrex();
-	    Object result = getCoinValueBTC_CREX24();
+            Object result = getCoinValueBTC_crex24();
 
+            /*
             if(result == null)
             {
                 result = getCoinValueBTC_poloniex();
                 if(result == null) {
-                    result = getCoinValueBTC_bittrex();
+                    result = getCoinValueBTC_BTER();
                     cryptsyValue = false;
                     if(result == null)
                         return null;
                 }
             }
-
+			*/
             btcRate = (Double)result;
 
 
