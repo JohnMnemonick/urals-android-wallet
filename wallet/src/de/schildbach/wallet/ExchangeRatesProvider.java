@@ -397,7 +397,8 @@ public class ExchangeRatesProvider extends ContentProvider
 				JSONArray Tickers = (JSONArray)jsonObject.get("Tickers");
 				JSONObject bts_urals = (JSONObject)(Tickers.getJSONObject(0));
 
-				btcRate = bts_urals.getDouble("Last");
+				//btcRate = bts_urals.getDouble("Last");
+				btcRate = bts_urals.getDouble("HighPrice");
 
 				return btcRate;
 
